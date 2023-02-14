@@ -7,9 +7,16 @@ import org.junit.Test;
 
 public class IntStackTest {
 
+    IntStack stack;
+
+    @Before
+    public void createEmptyStack(){
+        stack = new IntStack();
+    }
+
+
     @Test
     public void testNewStackIsNotFull() {
-        IntStack stack= new IntStack();
 
         assertFalse(stack.isFull());
     }
@@ -17,7 +24,6 @@ public class IntStackTest {
     @Test
 
     public void testNewStackIsFull(){
-        IntStack stack = new IntStack();
 
         for (int i = 0; i < stack.getCapacity(); i ++) {
             stack.push(1);
@@ -30,12 +36,29 @@ public class IntStackTest {
     @Test
 
     public void testPopReturnsPushedValue(){
-        IntStack stack = new IntStack();
 
         stack.push(2);
         int i = stack.pop();
 
         assertEquals(2, i);
+    }
+
+    @Test (expected = ArrayIndexOutOfBoundsException.class)
+    public void testPopArrayOutOfBounds(){
+
+
+        stack.pop();
+
+    }
+    @Test (expected = ArrayIndexOutOfBoundsException.class)
+    public void testPushArrayOutOfBounds(){
+
+        for (int i = 0; i < (stack.getCapacity()+1); i ++) {
+            stack.push(1);
+        }
+
+
+
     }
 
 }
