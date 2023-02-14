@@ -56,8 +56,20 @@ public class IntStackTest {
         for (int i = 0; i < (stack.getCapacity()+1); i ++) {
             stack.push(1);
         }
+    }
 
+    @Test
+    public void testIsEmptyFalse() {
+         stack.push(1);
 
+         assertFalse(stack.isEmpty());
+
+    }
+
+    @Test
+    public void testIsEmptyTrue() {
+
+        assertTrue(stack.isEmpty());
 
     }
 
