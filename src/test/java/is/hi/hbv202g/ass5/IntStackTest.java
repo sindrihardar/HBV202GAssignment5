@@ -35,7 +35,7 @@ public class IntStackTest {
         stack.push(2);
         int i = stack.pop();
 
-        assertSame(2, i);
+        assertEquals(2, i);
     }
 
 }
