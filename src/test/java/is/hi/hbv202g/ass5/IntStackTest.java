@@ -27,4 +27,15 @@ public class IntStackTest {
         assertTrue(stack.isFull());
     }
 
+    @Test
+
+    public void testPopReturnsPushedValue(){
+        IntStack stack = new IntStack();
+
+        stack.push(2);
+        int i = stack.pop();
+
+        assertSame(2, i);
+    }
+
 }
